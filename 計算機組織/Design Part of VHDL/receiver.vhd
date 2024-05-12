@@ -28,9 +28,11 @@ begin
         if reset = '1' then
             filter_reg <= (others => '0');
             f_ps2c_reg <= '0';
-        elsif clk'event and clk = '1' then
-            filter_reg <= filter_next;
-            f_ps2c_reg <= f_ps2c_next;
+        elsif clk'event then
+        	if clk = '1' then
+	            filter_reg <= filter_next;
+	            f_ps2c_reg <= f_ps2c_next;
+        	end if;
         end if;
     end process;
     
@@ -51,10 +53,12 @@ begin
             state_reg <= idle;
             n_reg <= (others => '0');
             b_reg <= (others => '0');
-        elsif clk'event and clk = '1' then
-            state_reg <= state_next;
-            n_reg <= n_next;
-            b_reg <= b_next;
+        elsif clk'event then
+        	if clk = '1' then
+            	state_reg <= state_next;
+            	n_reg <= n_next;
+            	b_reg <= b_next;
+             end if;
         end if;
     end process;
     
