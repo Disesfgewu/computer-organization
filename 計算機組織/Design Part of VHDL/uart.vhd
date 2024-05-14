@@ -9,9 +9,6 @@ entity uart is
     DVSR: integer := 163; -- baud rate divisor
     DVSR_BIT: integer := 8; -- # bits of DVSR
     FIFO_W: integer := 2 -- # addr bits of FIFO
-    -- for 1/1.5/2 stop bits
-    -- DVSR = 50M / (16 * baud rate)
-    -- # words in FIFO=2^FIFO_W
   );
   port (
     clk, reset: in std_logic;
